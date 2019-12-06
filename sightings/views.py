@@ -46,7 +46,10 @@ def stats(request):
     black_fur = squirrels.objects.filter(Primary_fur_color='Black').count()
     gray_fur = squirrels.objects.filter(Primary_fur_color='GRAY').count()
     cinnamon_fur = squirrels.objects.filter(Primary_fur_color='CINNAMON').count()
+    adult_count = squirrels.objects.filter(age='Adult').count()
+    juv_count = squirrels.objects.filter(age='Juvenile').count()
     running = squirrels.objects.filter(Running=True).count()
+    not_runing = squirrels.objects.filter(Running=False).count()
     chasing = squirrels.objects.filter(Chasing=True).count()
     climbing = squirrels.objects.filter(Climbing=True).count()
     eating = squirrels.objects.filter(Eating=True).count()
@@ -57,7 +60,10 @@ def stats(request):
             'black_fur' : black_fur,
             'gray_fur' : gray_fur,
             'cinnamon_fur' : cinnamon_fur,
+            'adult': adult,
+            'juvenile': juvenile,
             'running' : running,
+            'not_running': not_running,
             'chasing' = chasing,
             'climbing' = climbing,
             'eating' = eating,
